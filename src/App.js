@@ -1,9 +1,11 @@
+import React from "react";
+import Dropdown from "./Dropdown";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Dropdown />
     </div>
   );
 }
