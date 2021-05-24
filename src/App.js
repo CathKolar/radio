@@ -2,7 +2,7 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import "./App.css";
 
-function App() {
+const App = () => {
   const data = [
     { value: 1, name: "A" },
     { value: 2, name: "B" },
@@ -11,9 +11,9 @@ function App() {
 
   return (
     <div className="App">
-      <Dropdown options = {data} />
+      <Dropdown options={data} />
     </div>
   );
-}
+};
 
 export default App;
