@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Dropdown = ({ options }) => {
+  const [selectedValue, setSelectedValue] = useState("");
+
   return (
     <div>
-      <select>
+      <select
+        value={selectedValue}
+        onChange={(e) => setSelectedValue(e.target.value)}
+      >
         {options.map((item, idx) => (
           <option key={idx} value={item.value}>
             {item.name}
           </option>
         ))}
       </select>
+      <p>{selectedValue}</p>
     </div>
   );
 };

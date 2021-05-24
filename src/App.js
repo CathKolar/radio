@@ -10,9 +10,12 @@ const App = () => {
   ];
 
   return (
-    <div className="App">
-      <Dropdown options={data} />
-    </div>
+    <form onSubmit={() => {}}>
+      <div className="App">
+        <Dropdown options={data} />
+        <button type="submit">Search</button>
+      </div>
+    </form>
   );
 };
 
