@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 import "./App.css";
+import { Credentials } from "./Credentials";
 import axios from "axios";
 
 const App = () => {
   const spotify = Credentials();
+
+  console.log("Rendering App.js");
 
   const data = [
     { value: 1, name: "A" },
@@ -27,12 +30,18 @@ const App = () => {
     }).then((tokenResponse) => {
       console.log(tokenResponse.data.access_token);
       setToken(tokenResponse.data.access_token);
+
+      axios("https://api.spotify.com/v1/browse/categories?local=sv_US", {
+        method: "GET",
+        headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
+      });
     });
-  });
+  }, []);
 
   return (
     <form onSubmit={() => {}}>
       <div className="App">
+        <Dropdown options={generes} />
         <Dropdown options={data} />
         <button type="submit">Search</button>
       </div>
